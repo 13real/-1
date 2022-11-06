@@ -1,31 +1,33 @@
 #include<stdio.h>
 int main()
 {
-	int num[30],M,i,n,Sum,t;
+	int num[30],m,i,n,sum,t;
 	scanf("%d\n",&n);
 	for (i=0;i<n;i++)
 	{
 		scanf("%d",&num[i]);
-		if (num[i]>0) t=1;
+		if (num[i]>0)
+		t=1;
 	}
 	if (t==0)
 	{
 		printf("0");
 		return 0;
 	}
-	M=num[0];
-	if (num[0]<0) M=0;
-	Sum=M;
+	m=num[0];
+	if(num[0]<0) 
+	m=0;
+	sum=m;
 	for (i=0;i<n-1;i++)
 	{
-		Sum=Sum+num[i+1];
-		if (Sum>M)
+		sum=sum+num[i+1];
+		if(sum>m)
 		{
-			M=Sum;
+			m=sum;
 		}
-		else if (Sum<0)
-			Sum=0;
+		else if(sum<0)
+			sum=0;
 	}
-	printf("%d",M);
+	printf("%d",m);
 	return 0;
 }
