@@ -1,35 +1,31 @@
 #include<stdio.h>
-int max(int a[], int l)
-{
-	int maxsum = 0;
-	int sum1;int i,j;
-	for (i = 0; i<l; i++)
-	{
-		sum1 = 0;
-		for (j = i; j < l; j++)
-		{
-			sum1+= a[j];
-			if (sum1 > maxsum)
-				maxsum=sum1;
-		}
-	}
-	return maxsum;
-}
 int main()
 {
-	int l; int f= 0;
-	scanf("%d",&l);
-	int a[20];
-	for (int i = 0; i < l; i++)
+	int num[30],M,i,n,Sum,t;
+	scanf("%d\n",&n);
+	for (i=0;i<n;i++)
 	{
-		scanf("%d", &a[i]);
-		if (a[i] < 0)
-			f++;
+		scanf("%d",&num[i]);
+		if (num[i]>0) t=1;
 	}
-	if (f== l)
+	if (t==0)
+	{
 		printf("0");
-	else
-	{
-		printf("%d", max(a, l));
+		return 0;
 	}
+	M=num[0];
+	if (num[0]<0) M=0;
+	Sum=M;
+	for (i=0;i<n-1;i++)
+	{
+		Sum=Sum+num[i+1];
+		if (Sum>M)
+		{
+			M=Sum;
+		}
+		else if (Sum<0)
+			Sum=0;
+	}
+	printf("%d",M);
+	return 0;
 }
